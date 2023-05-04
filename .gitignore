@@ -20,3 +20,6 @@ Implementations/Application/cmake-build-debug/.ninja_deps
 Implementations/Application/cmake-build-debug/.ninja_log
 *.obj
 Implementations/AVL/cmake-build-debug/CMakeFiles/3.23.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
+Implementations/BST/cmake-build-debug/CMakeFiles/3.23.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
+Implementations/AVL/cmake-build-debug/.ninja_log
+Implementations/AVL/cmake-build-debug/.ninja_deps
