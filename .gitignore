@@ -16,3 +16,6 @@ Implementations/Application/cmake-build-debug/CMakeFiles/3.23.2/CompilerIdCXX/CM
 *.check_cache
 *.log
 *.idea/
+Implementations/Application/cmake-build-debug/.ninja_deps
+Implementations/Application/cmake-build-debug/.ninja_log
+*.obj
