@@ -15,3 +15,4 @@ Implementations/Application/cmake-build-debug/.cmake/api/v1/query/toolchains-v1
 Implementations/Application/cmake-build-debug/CMakeFiles/3.23.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
 *.check_cache
 *.log
+*.idea/
