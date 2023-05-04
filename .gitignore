@@ -1,0 +1,17 @@
+
+*.iml
+*.xml
+Implementations/Application/cmake-build-debug/.cmake/api/v1/query/cache-v2
+Implementations/Application/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1
+Implementations/Application/cmake-build-debug/.cmake/api/v1/query/codemodel-v2
+Implementations/Application/cmake-build-debug/.cmake/api/v1/query/toolchains-v1
+*.json
+*.ninja
+*.cmake
+*.txt
+*.bin
+*.exe
+*.c
+Implementations/Application/cmake-build-debug/CMakeFiles/3.23.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
+*.check_cache
+*.log
