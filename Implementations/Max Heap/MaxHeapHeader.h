@@ -8,5 +8,36 @@
 
 #include <iostream>
 using namespace std;
+#include "../../Implementations/Application/Student.h"
+#include <vector>
+
+template<class T>
+class MaxHeap{
+private:
+    T* heapArr;
+    int heapSize;
+    const int mxSize = 100;
+
+public:
+    // constructor
+    MaxHeap();
+    MaxHeap(vector<T>& data);
+    // methods
+
+    // to get the indices easily
+    int parentOf(int idx);
+    int leftChildOf(int idx);
+    int rightChildOf(int idx);
+
+    void insert(T item);
+    void deleteAt(int idx);
+    void maxHeapify(int idx);
+    void buildMaxHeap();
+
+    T removeMax();
+    T getMax();
+    int size();
+
+};
 
 #endif //MAX_HEAP_MAXHEAPHEADER_H
