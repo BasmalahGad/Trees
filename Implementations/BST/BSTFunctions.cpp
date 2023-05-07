@@ -73,8 +73,12 @@ void BST::search_student(int id)
             cout << p->stud.getinfo();
             break;
         }
-        else
+        else if (p->stud.getId() < id)
             p = p->left;
+        else
+        {
+            p = p->right;
+        }
     }
 }
 void DFS(Node *n, int &cs, int &is, int &ds, int &ai, int &it) // to visit all tree elements from leafs
