@@ -5,7 +5,17 @@
 
 #include "BSTFunctions.cpp"
 
-int main() {
+int main()
+{
+    BST s;
+    s.add_student("usf", 2021, 4.0, "is");
+    s.add_student("usf", 2020, 4.0, "is");
+    s.add_student("usf", 2022, 4.0, "ds");
+    s.add_student("usf", 2023, 4.0, "ai");
+    s.add_student("usf", 2019, 4.0, "is");
+    // s.search_student(2021);
+    s.print();
+
     cout << ":)";
     return 0;
 }

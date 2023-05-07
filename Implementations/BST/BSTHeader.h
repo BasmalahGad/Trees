@@ -12,21 +12,21 @@ using namespace std;
 class Node
 {
 public:
-    Student Student;
+    Student stud;
     Node *left;
     Node *right;
     Node()
     {
-        Student.setDepartment("N/A");
-        Student.setId(0);
-        Student.setGPA(0.0);
-        Student.setName("None");
+        stud.setDepartment("N/A");
+        stud.setId(0);
+        stud.setGPA(0.0);
+        stud.setName("None");
         left = NULL;
         right = NULL;
     }
-    Node(int val, Node *l, Node *r)
+    Node(Student val, Node *l, Node *r)
     {
-        value = val;
+        stud = val;
         left = l;
         right = r;
     }
@@ -44,7 +44,7 @@ public:
     void add_student(string Name, int id, double GPA, string Department);
     void remove_student(int id);
     void search_student(int id);
-    bool search(Student s);
+    // bool search(Student s);
     void print();
 };
 

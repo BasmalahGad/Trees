@@ -12,7 +12,8 @@
 
 using namespace std;
 
-class Student {
+class Student
+{
 private:
     int id;
     double gpa;
@@ -22,44 +23,57 @@ private:
 public:
     Student() {}
 
-    Student(int id, double gpa, string name, string depart) {
+    Student(int id, double gpa, string name, string depart)
+    {
         this->id = id;
         this->gpa = gpa;
         this->name = name;
         this->department = depart;
     }
 
-    int getId() {
+    int getId()
+    {
         return this->id;
     }
 
-    void setId(int newId) {
+    void setId(int newId)
+    {
         this->id = newId;
     }
 
-    double getGPA() {
+    double getGPA()
+    {
         return this->gpa;
     }
 
-    void setGPA(double newGPA) {
+    void setGPA(double newGPA)
+    {
         this->gpa = newGPA;
     }
 
-    string getName() {
+    string getName()
+    {
         return this->name;
     }
 
-    void setName(string newName) {
+    void setName(string newName)
+    {
         this->name = newName;
     }
 
-    string getDepartment() {
+    string getDepartment()
+    {
         return this->department;
     }
 
-    void setDepartment(string newDepart) {
+    void setDepartment(string newDepart)
+    {
         this->department = newDepart;
+    }
+    string getinfo()
+    {
+        return (name + " " + to_string(id) + " " + to_string(gpa) + " " + department);
     }
 };
 
-#endif //MAIN_CPP_STUDENT_H
+#endif // MAIN_CPP_STUDENT_H
