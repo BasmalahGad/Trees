@@ -10,15 +10,18 @@ int main() {
     AVL a1;
     Student s1(1,4,"Ahmed","CS");
     Student s2(2,4,"mo","IS");
-    // Student s4(7,4,"kk","DS");
+    Student s4(4,4,"kk","DS");
     Student s3(3,4,"omer","AI");
+    Student s5(5,4,"omer","AI");
 
     a1.insert_student(a1.get_root(),s1);
-    a1.insert_student(a1.get_root(),s3);
     a1.insert_student(a1.get_root(),s2);
-    // a1.insert_student(a1.get_root(),s4);
+    a1.insert_student(a1.get_root(),s3);
+    a1.insert_student(a1.get_root(),s4);
+    a1.insert_student(a1.get_root(),s5);
 
-    a1.print();
+    // a1.print();
+    a1.search_student(9);
 
     // cout << a1.get_root()->right->right->student_data.getinfo();
 

@@ -63,7 +63,7 @@ node* AVL::left_left_rotate(node* some_node)
         root = temp;
     }
 
-    cout << "ll" << endl;
+    // cout << "ll" << endl;
 
     return temp;
 }
@@ -79,7 +79,7 @@ node* AVL::right_right_rotate(node* some_node)
         root = temp;
     }
 
-    cout << "rr" << endl;
+    // cout << "rr" << endl;
 
     return temp;
 }
@@ -158,6 +158,43 @@ node* AVL::insert_student(node* some_node, Student some_student)
     return some_node;
 }
 
+bool AVL::search_student(int some_id)
+{
+    if(size == 0)
+    {
+        cout << "the AVL tree is Empty!" << endl;
+        return false;
+    }
+    else
+    {
+        int level = 0;
+        node* current_node = root;
+        while(current_node != nullptr)
+        {
+            if(some_id > current_node->student_data.getId())
+            {
+                current_node = current_node->right;
+                level++;
+            }
+            else if (some_id < current_node->student_data.getId())
+            {
+                current_node = current_node->left;
+                level++;
+            }
+            else
+            {
+                cout << "Student Found!" << endl;
+                cout << current_node->student_data.getinfo() << endl;
+                cout << level << endl;
+                return true;
+            }
+        }
+
+        cout << "Student Not Found!" << endl;
+        return false;
+    }
+}
+
 void AVL::in_order_traversal(node* some_node)
 {
     if(some_node == nullptr) //base case
@@ -172,6 +209,18 @@ void AVL::in_order_traversal(node* some_node)
 
     //recursivly print the right sub tree
     in_order_traversal(some_node->right);
+}
+
+void AVL::delete_AVL(node* some_node)
+{
+    if(some_node == nullptr)
+    {
+        return;
+    }
+
+    delete_AVL(some_node->left);
+    delete_AVL(some_node->right);
+    delete some_node;
 }
 
 void AVL::print()
