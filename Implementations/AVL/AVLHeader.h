@@ -53,16 +53,16 @@ class AVL
     {
         return size;
     }
-    int calc_Height(node* some_node); //Done!
-    int balance_factor(node* some_node); //Done!
-    node* left_left_rotate(node* some_node); //Done!
-    node* right_right_rotate(node* some_node); //Done!
-    node* left_right_rotate(node* some_node); //Done!
-    node* right_left_rotate(node* some_node); //Done!
-    node* insert_student(node* some_node, Student some_student); //Done!
-    node* delete_student(node* some_node, Student some_student);
-    bool search_student(int some_id); //Done!
-    void print(); //In Order Traversal   //Done!
+    int calc_Height(node* some_node);
+    int balance_factor(node* some_node);
+    node* left_left_rotate(node* some_node);
+    node* right_right_rotate(node* some_node);
+    node* left_right_rotate(node* some_node);
+    node* right_left_rotate(node* some_node);
+    node* insert_student(node* some_node, Student some_student);
+    node* delete_student(node* some_node, int some_id);
+    bool search_student(int some_id); 
+    void print(); //In Order Traversal   
 };
 
 

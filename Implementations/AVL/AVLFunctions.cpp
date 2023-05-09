@@ -158,6 +158,99 @@ node* AVL::insert_student(node* some_node, Student some_student)
     return some_node;
 }
 
+node* AVL::delete_student(node* some_node, int some_id)
+{
+    if(size <= 0)
+    {
+        cout << "The AVL tree is Empty!" << endl;
+        return nullptr;
+    }
+    else
+    {
+        //base case
+        if(some_node->left == nullptr && some_node->right == nullptr) //to delete a leaf
+        {
+            if(some_node == root)
+            {
+                root = nullptr;
+            }
+
+            delete some_node;
+            size--;
+            return nullptr;
+        }
+
+        //recursive case
+        node* temp;
+
+        if(some_id > some_node->student_data.getId())
+        {
+            some_node->right = delete_student(some_node->right,some_id);
+        }
+        else if(some_id < some_node->student_data.getId())
+        {
+            some_node->left = delete_student(some_node->left,some_id);
+        }
+        else //we found the node
+        {
+            //if there is a left sub tree
+            if(some_node->left != nullptr)
+            {
+                //get the max element in the left sub tree
+                temp = some_node->left;
+                while(temp->right != nullptr)
+                {
+                    temp = temp->right;
+                }
+
+                some_node->student_data = temp->student_data; //assign the max element data to the node we want to delete
+                some_node->left = delete_student(some_node->left,temp->student_data.getId()); //delete the real max element "which is a leaf :)" 
+            }
+            else //there is no left sub tree
+            {
+                //get the min element in the right sub tree
+                temp = some_node->right;
+                while(temp->left != nullptr)
+                {
+                    temp = temp->left;
+                }
+
+                some_node->student_data = temp->student_data; //assign the min element data to the node we want to delete
+                some_node->right = delete_student(some_node->right,temp->student_data.getId()); //delete the real min element "which is a leaf :)"
+            }
+        }
+
+        //calculating the balance factor and rotateing the tree
+        if(balance_factor(some_node) == 2 && balance_factor(some_node->left) == 1) //two positive numbers so we go with left left rotation
+        {
+            some_node = left_left_rotate(some_node);
+        }
+        else if(balance_factor(some_node) == 2 && balance_factor(some_node->left) == -1) //one positive number -> left, one negative number -> right
+        {
+            some_node = left_right_rotate(some_node);
+        }
+        else if(balance_factor(some_node) == 2 && balance_factor(some_node->left) == 0)
+        {
+            some_node = left_left_rotate(some_node);
+        }
+        else if(balance_factor(some_node) == -2 && balance_factor(some_node->left) == -1) //two negative numbers so we go with right right rotation
+        {
+            some_node = right_right_rotate(some_node);
+        }
+        else if(balance_factor(some_node) == -2 && balance_factor(some_node->left) == 1) //one negative number -> right, one positive number -> left
+        {
+            some_node = right_left_rotate(some_node);
+        }
+        else if(balance_factor(some_node) == -2 && balance_factor(some_node->left) == 0)
+        {
+            some_node = right_right_rotate(some_node);
+        }
+
+        return some_node;
+
+    }
+}
+
 bool AVL::search_student(int some_id)
 {
     if(size == 0)
