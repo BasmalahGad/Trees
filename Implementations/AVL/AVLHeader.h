@@ -37,12 +37,18 @@ class AVL
     node* root = nullptr;
     int size = 0;
 
+    void delete_AVL(node* some_node);
+    void in_order_traversal(node* some_node);
+
     public:
+    ~AVL()
+    {
+        delete_AVL(root);
+    }
     node* get_root()
     {
         return root;
     }
-
     int get_size()
     {
         return size;
@@ -55,9 +61,8 @@ class AVL
     node* right_left_rotate(node* some_node); //Done!
     node* insert_student(node* some_node, Student some_student); //Done!
     node* delete_student(node* some_node, Student some_student);
-    node* search_student(Student some_studeent);
-    void in_order_traversal(node* some_node);
-    void print(); //In Order Traversal
+    bool search_student(int some_id); //Done!
+    void print(); //In Order Traversal   //Done!
 };
 
 
