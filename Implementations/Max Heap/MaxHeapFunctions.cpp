@@ -5,58 +5,60 @@
 
 #include "MaxHeapHeader.h"
 
-template<class  T>
-MaxHeap<T> ::MaxHeap()
-{
-    heapSize = 0;
-    heapArr = new T[mxSize];
-}
-
-template<class T>
-int MaxHeap<T>::parentOf(int idx) {
+int MaxHeap::parentOf(int idx) {
     return (idx - 1) / 2;
 }
 
-template<class T>
-int MaxHeap<T>::leftChildOf(int idx) {
+int MaxHeap::leftChildOf(int idx) {
     return (2 * idx + 1);
 }
 
-template<class T>
-int MaxHeap<T>::rightChildOf(int idx) {
+int MaxHeap::rightChildOf(int idx) {
     return (2 * idx + 2);
 }
 
-template<class T>
-void MaxHeap<T>::maxHeapify(int idx) {
+void MaxHeap::maxHeapify(int idx, int sz) {
     int left = leftChildOf(idx);
     int right = rightChildOf(idx);
     int maxIdx = idx;
-    if(heapArr[left] > heapArr[maxIdx]){
+    // checks if the left child is larger than its parent and update max element index.
+    if(left < sz && studentsData[left].getGPA() > studentsData[maxIdx].getGPA()){
         maxIdx = left;
     }
-    if(heapArr[right] > heapArr[maxIdx]){
+    // checks if the right child is larger than its parent and update max element index.
+    if(right < sz && studentsData[right].getGPA() > studentsData[maxIdx].getGPA()){
         maxIdx = right;
     }
+    // in case that one child is larger than its parent swap the child with its parent and re-call the function to check the new index.
     if(maxIdx != idx){
-        swap(heapArr[idx], heapArr[maxIdx]);
-        maxHeapify(maxIdx);
+        swap(studentsData[idx], studentsData[maxIdx]);
+        maxHeapify(maxIdx, sz);
     }
 }
 
-template<class T>
-void MaxHeap<T>::buildMaxHeap() {
-    for (int i = heapSize / 2 - 1; i >= 0; i--) {
-        maxHeapify(i);
+void MaxHeap::addStudent(Student& student) { // add new student and call maxHeapify to save max heap tree properties.
+    studentsData.push_back(student);
+    maxHeapify(size() - 1, size());
+}
+
+void MaxHeap::sortStudents(){
+    for (int i = size() - 1; i > 0; i--) { // using heap sort to sort the students.
+        swap(studentsData[0], studentsData[i]);
+        maxHeapify(0,i);
     }
 }
 
-template<class T>
-T MaxHeap<T>::getMax() {
-    return heapArr[0];
+int MaxHeap::size() {
+    return studentsData.size();
 }
 
-template<class T>
-int MaxHeap<T>::size() {
-    return heapSize;
+void MaxHeap::print() { // print the students in reversed order.
+    for (int i = size() - 1; i >= 0; i--) {
+        cout << "Student " << i + 1 << ":\n";
+        cout << "ID: " << studentsData[i].getId() << "\n";
+        cout << "Name: " << studentsData[i].getName() << "\n";
+        cout << "GPA: " << studentsData[i].getGPA() << "\n";
+        cout << "Department " << studentsData[i].getDepartment() << "\n";
+        cout << "\n";
+    }
 }
