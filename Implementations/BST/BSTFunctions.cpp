@@ -70,6 +70,7 @@ void BST::search_student(int id)
     if (!Exists(id))
     {
         cout << "Student Not Found!" << endl;
+        return;
     }
     while (p != NULL)
     {
