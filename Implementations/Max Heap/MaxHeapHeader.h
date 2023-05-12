@@ -7,11 +7,13 @@
 #define MAX_HEAP_MAXHEAPHEADER_H
 
 #include <iostream>
+
 using namespace std;
+
 #include "../../Implementations/Application/Student.h"
 #include <vector>
 
-class MaxHeap{
+class MaxHeap {
 private:
     vector<Student> studentsData;
 
@@ -20,14 +22,14 @@ private:
     int leftChildOf(int idx);
     int rightChildOf(int idx);
     void maxHeapify(int idx, int sz);
-
+    void maxHeapifyUp(int idx);
 
 public:
     // constructor
-    MaxHeap(){}
+    MaxHeap() {}
 
     // methods
-    void addStudent(Student& student);
+    void addStudent(Student &student);
     void sortStudents();
     void print();
     int size();

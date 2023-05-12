@@ -22,29 +22,38 @@ void MaxHeap::maxHeapify(int idx, int sz) {
     int right = rightChildOf(idx);
     int maxIdx = idx;
     // checks if the left child is larger than its parent and update max element index.
-    if(left < sz && studentsData[left].getGPA() > studentsData[maxIdx].getGPA()){
+    if (left < sz && studentsData[left].getGPA() > studentsData[maxIdx].getGPA()) {
         maxIdx = left;
     }
     // checks if the right child is larger than its parent and update max element index.
-    if(right < sz && studentsData[right].getGPA() > studentsData[maxIdx].getGPA()){
+    if (right < sz && studentsData[right].getGPA() > studentsData[maxIdx].getGPA()) {
         maxIdx = right;
     }
     // in case that one child is larger than its parent swap the child with its parent and re-call the function to check the new index.
-    if(maxIdx != idx){
+    if (maxIdx != idx) {
         swap(studentsData[idx], studentsData[maxIdx]);
         maxHeapify(maxIdx, sz);
     }
 }
 
-void MaxHeap::addStudent(Student& student) { // add new student and call maxHeapify to save max heap tree properties.
+void MaxHeap::addStudent(Student &student) { // add new student and call maxHeapifyUp to save max heap tree properties.
     studentsData.push_back(student);
-    maxHeapify(size() - 1, size());
+    maxHeapifyUp(size() - 1);
 }
 
-void MaxHeap::sortStudents(){
+void MaxHeap::maxHeapifyUp(int idx) {
+    int parent = parentOf(idx);
+    // in case of insertion new element, checks if the parent of this element is smaller than that element and swap them if this is true.
+    if (idx > 0 && studentsData[idx].getGPA() > studentsData[parent].getGPA()) {
+        swap(studentsData[parent], studentsData[idx]);
+        maxHeapifyUp(parent);
+    }
+}
+
+void MaxHeap::sortStudents() {
     for (int i = size() - 1; i > 0; i--) { // using heap sort to sort the students.
         swap(studentsData[0], studentsData[i]);
-        maxHeapify(0,i);
+        maxHeapify(0, i);
     }
 }
 
@@ -53,8 +62,9 @@ int MaxHeap::size() {
 }
 
 void MaxHeap::print() { // print the students in reversed order.
+    int j = 1;
     for (int i = size() - 1; i >= 0; i--) {
-        cout << "Student " << i + 1 << ":\n";
+        cout << "Student " << j++ << ":\n";
         cout << "ID: " << studentsData[i].getId() << "\n";
         cout << "Name: " << studentsData[i].getName() << "\n";
         cout << "GPA: " << studentsData[i].getGPA() << "\n";
