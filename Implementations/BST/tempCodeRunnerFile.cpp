@@ -1,1 +1,1 @@
-    // s.search_student(2021);
+    s.add_student("usf", 2021, 4.0, "IS");

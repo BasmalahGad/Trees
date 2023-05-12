@@ -29,7 +29,7 @@ void BST::add_student(string Name, int id, double GPA, string Department)
         }
         else if (s.getId() == p->stud.getId())
         {
-            cout << "Student with this ID already exists";
+            cout << "Student with this ID already exists" << endl;
             return;
         }
         else
@@ -49,10 +49,28 @@ void BST::add_student(string Name, int id, double GPA, string Department)
         p->left = n;
     }
 }
+bool BST::Exists(int id)
+{
+    Node *p = root;
+    while (p != NULL)
+    {
+        if (p->stud.getId() == id)
+            return true;
+        if (id > p->stud.getId())
+            p = p->right;
+        else
+            p = p->left;
+    }
+    return false;
+}
 
 void BST::search_student(int id)
 {
     Node *p = root;
+    if (!Exists(id))
+    {
+        cout << "Student Not Found!" << endl;
+    }
     while (p != NULL)
     {
         if (p->stud.getId() == id)

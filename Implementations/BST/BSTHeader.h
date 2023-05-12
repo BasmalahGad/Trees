@@ -35,6 +35,7 @@ class BST
 {
 private:
     Node *root;
+    bool Exists(int id);
 
 public:
     BST()
@@ -44,7 +45,6 @@ public:
     void add_student(string Name, int id, double GPA, string Department);
     void remove_student(int id);
     void search_student(int id);
-    // bool search(Student s);
     void print();
 };
 

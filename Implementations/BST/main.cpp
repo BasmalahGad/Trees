@@ -14,12 +14,13 @@ int main()
     s.add_student("usf", 2023, 4.0, "AI");
     s.add_student("usf", 2019, 4.0, "IS");
     s.search_student(2021);
-    s.print();
+    // s.print();
 
     cout << ":)" << endl;
     s.add_student("usf", 2020, 4.0, "IS");
-    // cout << endl;
-    s.remove_student(2062);
+    cout << endl;
+    s.search_student(2025);
+    // s.remove_student(2062);
     s.print();
     return 0;
 }
