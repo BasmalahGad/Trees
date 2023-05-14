@@ -137,6 +137,9 @@ void BST::print()
     cout << "AI " << AI << " students " << endl;
     cout << "IT " << IT << " students " << endl;
 }
+
+
+
 bool BST::remove_student(int id)
 {
     Node *p = root;
@@ -219,6 +222,7 @@ bool BST::remove_student(int id)
             p->stud = p1->stud;
             p->right = parent->right;
             delete p1;
+            return true;
         }
         else
         {
@@ -230,6 +234,9 @@ bool BST::remove_student(int id)
             p->stud = p1->stud;
             parent->left = nullptr;
             delete p1;
+            return true;
         }
     }
+
+    return false;
 }

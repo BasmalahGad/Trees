@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "Student.h"
-#include "../../Implementations/AVL/AVLHeader.h"
-#include "../../Implementations/BST/BSTHeader.h"
-#include "../../Implementations/Max Heap/MaxHeapHeader.h"
-#include "../../Implementations/Min Heap/MinHeapHeader.h"
+#include "../../Implementations/AVL/AVLFunctions.cpp"
+#include "../../Implementations/BST/BSTFunctions.cpp"
+#include "../../Implementations/Max Heap/MaxHeapFunctions.cpp"
+#include "../../Implementations/Min Heap/MinHeapFunctions.cpp"
 using namespace std;
 
 void readFile(vector<Student>& students);
@@ -28,7 +29,7 @@ int main() {
     vector<Student> studentsDate;
     readFile(studentsDate);
     while (true){
-        cout << "Choose Data Structure:\n"
+        cout << "\nChoose Data Structure:\n"
                 "1. BST\n"
                 "2. AVL\n"
                 "3. Min Heap\n"
@@ -53,19 +54,19 @@ int main() {
                 break;
             }
             case 3:{
-                MaxHeap mxHeap;
-                for (int i = 0; i < studentsDate.size(); ++i) {
-                    mxHeap.addStudent(studentsDate[i]);
-                }
-                MaxHeap_menu(mxHeap);
-                break;
-            }
-            case 4:{
                 MinHeap miHeap;
                 for (int i = 0; i < studentsDate.size(); ++i) {
                     miHeap.addStudent(studentsDate[i]);
                 }
                 MinHeap_menu(miHeap);
+                break;
+            }
+            case 4:{
+                MaxHeap mxHeap;
+                for (int i = 0; i < studentsDate.size(); ++i) {
+                    mxHeap.addStudent(studentsDate[i]);
+                }
+                MaxHeap_menu(mxHeap);
                 break;
             }
             case 5:{
@@ -116,7 +117,7 @@ void BST_menu(BST& bst){
     string name;
     string depart;
     while (true){
-        cout << "Choose one of the following options:\n"
+        cout << "\nChoose one of the following options:\n"
                 "1. Add student\n"
                 "2. Remove student\n"
                 "3. Search student\n"
@@ -129,11 +130,14 @@ void BST_menu(BST& bst){
                 cout << "ID: \n";
                 cin >> id;
                 cout << "Name: \n";
-                cin >> name;
+                cin.ignore();
+                getline(cin, name);
                 cout << "GPA: \n";
                 cin >> gpa;
                 cout << "Department: \n";
-                cin >> depart;
+                cin.ignore();
+                getline(cin, depart);
+
                 bst.add_student(name,id,gpa,depart);
                 cout << "Student added successfully \2\n";
                 break;
@@ -174,7 +178,7 @@ void AVL_menu(AVL& avl){
     string name;
     string depart;
     while (true){
-        cout << "Choose one of the following options:\n"
+        cout << "\nChoose one of the following options:\n"
                 "1. Add student\n"
                 "2. Remove student\n"
                 "3. Search student\n"
@@ -187,14 +191,16 @@ void AVL_menu(AVL& avl){
                 cout << "ID: \n";
                 cin >> id;
                 cout << "Name: \n";
-                cin >> name;
+                cin.ignore();
+                getline(cin,name);
                 cout << "GPA: \n";
                 cin >> gpa;
                 cout << "Department: \n";
-                cin >> depart;
+                cin.ignore();
+                getline(cin,depart);
                 Student student(id,gpa,name,depart);
                 avl.insert_student(avl.get_root(),student);
-                cout << "Student added successfully :)\n";
+                cout << "Student added successfully \2\n";
                 break;
             }
             case 2:{
@@ -228,7 +234,8 @@ void AVL_menu(AVL& avl){
 void MaxHeap_menu(MaxHeap& mxHeap){
     int mxHepChoice;
     while (true){
-        cout << "1. Add student\n"
+        cout << "\nChoose one of the following options:\n"
+                "1. Add student\n"
                 "2. Print All (sorted by gpa)\n"
                 "3. Return to main menu\n";
         cin >> mxHepChoice;
@@ -242,14 +249,16 @@ void MaxHeap_menu(MaxHeap& mxHeap){
                 cout << "ID: \n";
                 cin >> id;
                 cout << "Name: \n";
-                cin >> name;
+                cin.ignore();
+                getline(cin, name);
                 cout << "GPA: \n";
                 cin >> gpa;
                 cout << "Department: \n";
-                cin >> depart;
+                cin.ignore();
+                getline(cin,depart);
                 Student student(id,gpa,name,depart);
                 mxHeap.addStudent(student);
-                cout << "Student added successfully :)\n";
+                cout << "Student added successfully \2\n";
                 break;
             }
             case 2:{
@@ -271,7 +280,8 @@ void MaxHeap_menu(MaxHeap& mxHeap){
 void MinHeap_menu(MinHeap& miHeap){
     int miHepChoice;
     while (true){
-        cout << "1. Add student\n"
+        cout << "\nChoose one of the following options:\n"
+                "1. Add student\n"
                 "2. Print All (sorted by gpa)\n"
                 "3. Return to main menu\n";
         cin >> miHepChoice;
@@ -285,11 +295,13 @@ void MinHeap_menu(MinHeap& miHeap){
                 cout << "ID: \n";
                 cin >> id;
                 cout << "Name: \n";
-                cin >> name;
+                cin.ignore();
+                getline(cin,name);
                 cout << "GPA: \n";
                 cin >> gpa;
                 cout << "Department: \n";
-                cin >> depart;
+                cin.ignore();
+                getline(cin, depart);
                 Student student(id,gpa,name,depart);
                 miHeap.addStudent(student);
                 cout << "Student added successfully :)\n";

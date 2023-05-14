@@ -63,13 +63,20 @@ int MaxHeap::size() {
 }
 
 void MaxHeap::print() { // print the students in reversed order.
-    int j = 1;
+    sortStudents();
+    int student_counter = 1;
     for (int i = size() - 1; i >= 0; i--) {
-        cout << "Student " << j++ << ":\n";
+        cout << "Student " << student_counter++ << ":\n";
         cout << "ID: " << studentsData[i].getId() << "\n";
         cout << "Name: " << studentsData[i].getName() << "\n";
         cout << "GPA: " << studentsData[i].getGPA() << "\n";
         cout << "Department " << studentsData[i].getDepartment() << "\n";
         cout << "\n";
+    }
+
+    //building the manheap again after sorting it
+    for(int i = (size()/2)-1; i >= 0;i--)
+    {
+        maxHeapify(i,size());
     }
 }

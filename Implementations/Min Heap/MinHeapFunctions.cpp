@@ -50,7 +50,7 @@ void MinHeap::minHeapifyUp(int idx) {
     }
 }
 
-void MinHeap::sortStudents() {
+void MinHeap::sortStudents(){
     for (int i = size() - 1; i > 0; i--) { // using heap sort to sort the students.
         swap(studentsData[0], studentsData[i]);
         minHeapify(0, i);
@@ -62,13 +62,22 @@ int MinHeap::size() {
 }
 
 void MinHeap::print() { // print the students in reversed order.
-    int j = 1;
+    int student_counter = 1;
+
+    sortStudents();
     for (int i = size() - 1; i >= 0; i--) {
-        cout << "Student " << j++ << ":\n";
+        cout << "Student " << student_counter++ << ":\n";
         cout << "ID: " << studentsData[i].getId() << "\n";
         cout << "Name: " << studentsData[i].getName() << "\n";
         cout << "GPA: " << studentsData[i].getGPA() << "\n";
         cout << "Department " << studentsData[i].getDepartment() << "\n";
         cout << "\n";
     }
+
+    //building the minheap again after sorting it
+    for(int i = (size()/2)-1; i >= 0;i--)
+    {
+        minHeapify(i,size());
+    }
+
 }

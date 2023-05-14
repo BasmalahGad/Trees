@@ -270,25 +270,25 @@ bool AVL::search_student(int some_id)
     }
     else
     {
-        int level = 0;
+        // int level = 0;
         node* current_node = root;
         while(current_node != nullptr)
         {
             if(some_id > current_node->student_data.getId())
             {
                 current_node = current_node->right;
-                level++;
+                // level++;
             }
             else if (some_id < current_node->student_data.getId())
             {
                 current_node = current_node->left;
-                level++;
+                // level++;
             }
             else
             {
                 cout << "Student Found!" << endl;
                 cout << current_node->student_data.getinfo() << endl;
-                cout << level << endl;
+                // cout << level << endl;
                 return true;
             }
         }
