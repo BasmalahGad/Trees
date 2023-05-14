@@ -47,6 +47,7 @@ void MaxHeap::maxHeapifyUp(int idx) {
     if (idx > 0 && studentsData[idx].getGPA() > studentsData[parent].getGPA()) {
         swap(studentsData[parent], studentsData[idx]);
         maxHeapifyUp(parent);
+        
     }
 }
 
