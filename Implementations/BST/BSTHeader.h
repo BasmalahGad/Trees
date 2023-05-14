@@ -43,7 +43,7 @@ public:
         root = NULL;
     }
     void add_student(string Name, int id, double GPA, string Department);
-    void remove_student(int id);
+    bool remove_student(int id);
     void search_student(int id);
     void print();
 };

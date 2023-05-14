@@ -183,10 +183,10 @@ node* AVL::delete_student(node* some_node, int some_id)
 
                 delete some_node;
                 size--;
-
+                cout << "Student removed successfully \2\n";
                 return nullptr;
             }
-
+            cout << "Student Not Found!" << endl;
             return some_node;
         }
 

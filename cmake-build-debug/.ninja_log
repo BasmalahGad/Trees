@@ -1,0 +1,12 @@
+# ninja log v5
+41	1251	7057942382221897	CMakeFiles/Trees.dir/Implementations/BST/BSTFunctions.cpp.obj	231c033349d96d5
+3	1283	7057942382310730	CMakeFiles/Trees.dir/Implementations/AVL/AVLFunctions.cpp.obj	ae816cc9c66c04d8
+30	1306	7057942382572319	CMakeFiles/Trees.dir/Implementations/BST/main.cpp.obj	5679780252807805
+53	1321	7057942382470998	CMakeFiles/Trees.dir/Implementations/Max_Heap/main.cpp.obj	e870aabac8ede752
+18	1332	7057942382544828	CMakeFiles/Trees.dir/Implementations/AVL/main.cpp.obj	26148ee2fe45c0e8
+11	1867	7057942388387671	CMakeFiles/Trees.dir/Implementations/Application/main.cpp.obj	7b762646e4f9677e
+1321	2233	7057942392069222	CMakeFiles/Trees.dir/Implementations/Min_Heap/main.cpp.obj	f254f860837bfc72
+1284	2304	7057942392783007	CMakeFiles/Trees.dir/Implementations/Max_Heap/MaxHeapFunctions.cpp.obj	679c98b81622473d
+1307	2314	7057942392880591	CMakeFiles/Trees.dir/Implementations/Min_Heap/MinHeapFunctions.cpp.obj	2152d036dac791d6
+6	193	7057945141282675	CMakeFiles/Trees.dir/Implementations/BST/tempCodeRunnerFile.cpp.obj	a01cb9cf9ce95bc0
+8	1544	7057945828113908	CMakeFiles/Trees.dir/Implementations/Application/main.cpp.obj	7b762646e4f9677e

@@ -82,7 +82,7 @@ void BST::search_student(int id)
             cout << p->stud.getinfo() << endl;
             break;
         }
-        else if (p->stud.getId() < id)
+        else if (p->stud.getId() > id)
             p = p->left;
         else
         {
@@ -137,7 +137,7 @@ void BST::print()
     cout << "AI " << AI << " students " << endl;
     cout << "IT " << IT << " students " << endl;
 }
-void BST::remove_student(int id)
+bool BST::remove_student(int id)
 {
     Node *p = root;
     Node *parent = NULL;
@@ -156,8 +156,8 @@ void BST::remove_student(int id)
     // case 1 : the node IS not exesting to be deleted
     if (p == NULL)
     {
-        cout << "the node is not exesting to be deleted";
-        return;
+        cout << "the node is not exesting to be deleted\n";
+        return false;
     }
     // case 2 : a node with no children
     if (p->left == NULL && p->right == NULL)
@@ -172,7 +172,7 @@ void BST::remove_student(int id)
             parent->left = NULL;
         }
         delete p;
-        return;
+        return true;
     }
     // case 3 : a node with no left child
     if (p->left == NULL)
@@ -186,7 +186,7 @@ void BST::remove_student(int id)
             parent->left = p->right;
         }
         delete p;
-        return;
+        return true;
     }
 
     // case 4 : a node with no right child
@@ -201,7 +201,7 @@ void BST::remove_student(int id)
             parent->left = p->left;
         }
         delete p;
-        return;
+        return true;
     }
     // case 5 : the node is the root it's self or
     // case 6 : a node with two children
