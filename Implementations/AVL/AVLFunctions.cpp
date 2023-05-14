@@ -168,16 +168,26 @@ node* AVL::delete_student(node* some_node, int some_id)
     else
     {
         //base case
+        if(some_node == nullptr)
+        {
+            return nullptr;
+        }
         if(some_node->left == nullptr && some_node->right == nullptr) //to delete a leaf
         {
-            if(some_node == root)
+            if(some_node->student_data.getId() == some_id)
             {
-                root = nullptr;
+                if(some_node == root)
+                {
+                    root = nullptr;
+                }
+
+                delete some_node;
+                size--;
+
+                return nullptr;
             }
 
-            delete some_node;
-            size--;
-            return nullptr;
+            return some_node;
         }
 
         //recursive case
