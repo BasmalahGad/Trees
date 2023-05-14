@@ -90,52 +90,43 @@ void BST::search_student(int id)
         }
     }
 }
-void DFS(Node *n, int &CS, int &IS, int &DS, int &AI, int &IT) // to vISIT all tree elements from leafs
+void BST::DFS(Node *n) // to vISIT all tree elements from leafs
 {
 
     if (n == NULL)
         return;
 
     // print sub left tree
-    DFS(n->left, CS, IS, DS, AI, IT);
+    DFS(n->left);
 
     // print root
-
-    if (n->stud.getDepartment() == "CS")
-    {
-        CS++;
-    }
-    if (n->stud.getDepartment() == "IS")
-    {
-        IS++;
-    }
-    if (n->stud.getDepartment() == "DS")
-    {
-        DS++;
-    }
-    if (n->stud.getDepartment() == "AI")
-    {
-        AI++;
-    }
-    if (n->stud.getDepartment() == "IT")
-    {
-        IT++;
-    }
-    cout << n->stud.getinfo() << endl;
+    cout << "\n";
+    cout << "ID: " << n->stud.getId()<< "\n";
+    cout << "Name: " << n->stud.getName() << "\n";
+    cout << "GPA: " << n->stud.getGPA() << "\n";
+    cout << "Department " << n->stud.getDepartment() << "\n";
+    department_count[n->stud.getDepartment()]++; //to count the departments
 
     // print sub right tree
-    DFS(n->right, CS, IS, DS, AI, IT);
+    DFS(n->right);
 }
 
 void BST::print()
 {
-    int CS{}, IS{}, DS{}, AI{}, IT{};
-    DFS(root, CS, IS, DS, AI, IT);
-    cout << "CS " << CS << " students " << endl;
-    cout << "IS " << IS << " students " << endl;
-    cout << "DS " << DS << " students " << endl;
-    cout << "AI " << AI << " students " << endl;
-    cout << "IT " << IT << " students " << endl;
+    //clearing the map before counting
+    department_count.clear();
+    DFS(root);
+
+    cout << "\n";
+    cout << "Students per Departments:" << endl;
+
+    auto it = department_count.begin();
+    while(it != department_count.end())
+    {
+        cout << it->first << ": " << it->second << " Students" << endl;
+        it++;
+    }
+
 }
 
 

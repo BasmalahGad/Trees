@@ -7,6 +7,8 @@
 #define BST_BSTHEADER_H
 
 #include <iostream>
+#include <map>
+#include <string>
 #include "../../Implementations/Application/Student.h"
 using namespace std;
 class Node
@@ -36,6 +38,10 @@ class BST
 private:
     Node *root;
     bool Exists(int id);
+    map<string,int> department_count;
+
+    //Private Methods
+    void DFS(Node *n);
 
 public:
     BST()

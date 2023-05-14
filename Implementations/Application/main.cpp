@@ -34,7 +34,8 @@ int main() {
                 "2. AVL\n"
                 "3. Min Heap\n"
                 "4. Max Heap\n"
-                "5. Exit Program\n";
+                "5. Exit Program\n"
+                "Enter your choice: ";
         cin >> choice;
         switch (choice) {
             case 1:{
@@ -108,8 +109,6 @@ void readFile(vector<Student>& students){
     }
 }
 
-
-
 void BST_menu(BST& bst){
     int BSTChoice;
     int id;
@@ -122,7 +121,8 @@ void BST_menu(BST& bst){
                 "2. Remove student\n"
                 "3. Search student\n"
                 "4. Print All (sorted by id)\n"
-                "5. Return to main menu\n";
+                "5. Return to main menu\n"
+                "Enter your choice: ";
         cin >> BSTChoice;
         switch (BSTChoice) {
             case 1:{
@@ -183,7 +183,8 @@ void AVL_menu(AVL& avl){
                 "2. Remove student\n"
                 "3. Search student\n"
                 "4. Print All (sorted by id)\n"
-                "5. Return to main menu\n";
+                "5. Return to main menu\n"
+                "Enter your choice: ";
         cin >> AVLChoice;
         switch (AVLChoice) {
             case 1:{
@@ -237,7 +238,8 @@ void MaxHeap_menu(MaxHeap& mxHeap){
         cout << "\nChoose one of the following options:\n"
                 "1. Add student\n"
                 "2. Print All (sorted by gpa)\n"
-                "3. Return to main menu\n";
+                "3. Return to main menu\n"
+                "Enter your choice: ";
         cin >> mxHepChoice;
         switch (mxHepChoice) {
             case 1:{
@@ -283,7 +285,8 @@ void MinHeap_menu(MinHeap& miHeap){
         cout << "\nChoose one of the following options:\n"
                 "1. Add student\n"
                 "2. Print All (sorted by gpa)\n"
-                "3. Return to main menu\n";
+                "3. Return to main menu\n"
+                "Enter your choice: ";
         cin >> miHepChoice;
         switch (miHepChoice) {
             case 1:{

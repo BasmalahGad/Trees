@@ -7,6 +7,8 @@
 #define AVL_AVLHEADER_H
 
 #include <iostream>
+#include <map>
+#include <string>
 #include "../../Implementations/Application/Student.h"
 using namespace std;
 
@@ -36,6 +38,8 @@ class AVL
     private:
     node* root = nullptr;
     int size = 0;
+    map<string,int> department_count;
+
 
     int calc_Height(node* some_node);
     int balance_factor(node* some_node);

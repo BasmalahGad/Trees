@@ -308,7 +308,13 @@ void AVL::in_order_traversal(node* some_node)
     //recursivly print the left sub tree
     in_order_traversal(some_node->left);
 
-    cout << some_node->student_data.getinfo() << endl; //print the node it self
+    //print the node it self
+    cout << "\n";
+    cout << "ID: " << some_node->student_data.getId()<< "\n";
+    cout << "Name: " << some_node->student_data.getName() << "\n";
+    cout << "GPA: " << some_node->student_data.getGPA() << "\n";
+    cout << "Department " << some_node->student_data.getDepartment() << "\n";
+    department_count[some_node->student_data.getDepartment()]++; //to count the departments
 
     //recursivly print the right sub tree
     in_order_traversal(some_node->right);
@@ -328,5 +334,17 @@ void AVL::delete_AVL(node* some_node)
 
 void AVL::print()
 {
+    //clearing the map before counting
+    department_count.clear();
     in_order_traversal(root);
+
+    cout << "\n";
+    cout << "Students per Departments:" << endl;
+
+    auto it = department_count.begin();
+    while(it != department_count.end())
+    {
+        cout << it->first << ": " << it->second << " Students" << endl;
+        it++;
+    }
 }
