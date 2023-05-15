@@ -4,7 +4,7 @@
 // Author1 and ID and Group: Youssef Mohamed Salah Eldin Anwar    ID:20210483       Group: S25,26
 // Author2 and ID and Group: Abdelrahman Wael Mohammed Hanafy     ID: 20210490      Group: S25,26
 // Author3 and ID and Group: Basmala Mohamed Sayed Gad            ID: 20210090      Group: S25,26
-#include "ApplicationHeader.h"
+#include "ApplicationFunctions.cpp"
 int main() {
     Application app;
     app.Application_menu();

@@ -12,10 +12,10 @@
 #include <fstream>
 #include <string>
 #include "Student.h"
-#include "../../Implementations/AVL/AVLHeader.h"
-#include "../../Implementations/BST/BSTHeader.h"
-#include "../../Implementations/Max Heap/MaxHeapHeader.h"
-#include "../../Implementations/Min Heap/MinHeapHeader.h"
+#include "../../Implementations/AVL/AVLFunctions.cpp"
+#include "../../Implementations/BST/BSTFunctions.cpp"
+#include "../../Implementations/Max Heap/MaxHeapFunctions.cpp"
+#include "../../Implementations/Min Heap/MinHeapFunctions.cpp"
 using namespace std;
 
 class Application{
